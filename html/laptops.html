@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- cơ bản -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- thông tin trang web -->
+      <title>Bộ sưu tập Laptop của chúng tôi - TechHub</title>
+      <meta name="keywords" content="laptops, gaming laptops, business laptops, ultrabooks, budget laptops">
+      <meta name="description" content="TechHub - Duyệt bộ sưu tập laptop đa dạng cho mọi nhu cầu và ngân sách">
+      <meta name="author" content="TechHub">
+      <!-- bootstrap css (v5.3.2) -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- css style -->
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
+      <!-- css tech -->
+      <link rel="stylesheet" type="text/css" href="../css/tech.css">
+      <!-- typography css -->
+      <link rel="stylesheet" type="text/css" href="../css/typography.css">
+      <!-- bổ sung tùy chỉnh -->
+      <link rel="stylesheet" type="text/css" href="../css/custom-additions.css">
+      <!-- sửa lỗi bố cục -->
+      <link rel="stylesheet" type="text/css" href="../css/layout-fixes.css">
+      <!-- Responsive -->
+      <link rel="stylesheet" href="../css/responsive.css">
+      <!-- Styles trang laptop nâng cao -->
+      <link rel="stylesheet" href="../css/laptop-enhanced.css">
+      <!-- biểu tượng trang web -->
+      <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+      <!-- fonts css -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+      <!-- Thanh cuộn tùy chỉnh CSS -->
+      <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+      <!-- Font Awesome 6 -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <!-- Script bao gồm HTML -->
+      <script src="../js/include-html.js"></script>
+      <!-- Script API sản phẩm -->
+      <script src="../js/product-api.js"></script>
+   </head>
+   <body>
+      <!-- Bao gồm Header -->
+      <div data-include="../includes/header.html"></div>
+      
+      <!-- phần bộ lọc bắt đầu -->
+      <div class="container mt-5">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="card p-3 mb-4 sticky-top" style="top: 20px; z-index: 100;">
+                  <h4>Tùy chọn lọc</h4>
+                  <button class="btn btn-sm btn-outline-secondary mb-2" id="reset-filters">Đặt lại tất cả bộ lọc</button>
+                  <hr>
+                  
+                  <h5 class="mt-3">Khoảng giá</h5>
+                  <div class="price-filter">
+                     <input type="range" min="15" max="130" value="130" class="price-slider" id="priceRange">
+                     <div class="price-range">
+                        <span>15,000,000₫</span>
+                        <span>130,000,000₫</span>
+                     </div>
+                     <div class="price-value mt-2 text-center">130,000,000₫</div>
+                  </div>
+                  
+                  <h5 class="mt-4">Danh mục</h5>
+                  <div class="category-filters">
+                     <button class="category-btn active">Tất cả</button>
+                     <button class="category-btn">Gaming</button>
+                     <button class="category-btn">Văn phòng</button>
+                     <button class="category-btn">Ultrabook</button>
+                     <button class="category-btn">Giá rẻ</button>
+                     <button class="category-btn">2-in-1</button>
+                  </div>
+                  
+                  <h5 class="mt-4">Thương hiệu</h5>
+                  <div class="brands-container" style="max-height: 200px; overflow-y: auto;">
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand1" checked>
+                        <label class="form-check-label" for="brand1">
+                           Dell
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand2" checked>
+                        <label class="form-check-label" for="brand2">
+                           HP
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand3" checked>
+                        <label class="form-check-label" for="brand3">
+                           Lenovo
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand4" checked>
+                        <label class="form-check-label" for="brand4">
+                           ASUS
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand5" checked>
+                        <label class="form-check-label" for="brand5">
+                           Apple
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand6" checked>
+                        <label class="form-check-label" for="brand6">
+                           Microsoft
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand7" checked>
+                        <label class="form-check-label" for="brand7">
+                           MSI
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand8" checked>
+                        <label class="form-check-label" for="brand8">
+                           Acer
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand9" checked>
+                        <label class="form-check-label" for="brand9">
+                           LG
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brand10" checked>
+                        <label class="form-check-label" for="brand10">
+                           Samsung
+                        </label>
+                     </div>
+                  </div>
+                  
+                  <h5 class="mt-4">Bộ xử lý</h5>
+                  <div class="form-check">
+                     <input class="form-check-input processor-check" type="checkbox" value="Intel" id="intel" checked>
+                     <label class="form-check-label" for="intel">Intel</label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input processor-check" type="checkbox" value="AMD" id="amd" checked>
+                     <label class="form-check-label" for="amd">AMD</label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input processor-check" type="checkbox" value="Apple" id="apple-silicon" checked>
+                     <label class="form-check-label" for="apple-silicon">Apple Silicon</label>
+                  </div>
+                  
+                  <h5 class="mt-4">RAM</h5>
+                  <div class="ram-filter">
+                     <select class="form-select" id="ram-filter">
+                        <option value="">Tất cả RAM</option>
+                        <option value="8GB">8GB hoặc ít hơn</option>
+                        <option value="16GB">16GB</option>
+                        <option value="32GB">32GB</option>
+                        <option value="64GB">64GB hoặc nhiều hơn</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="col-md-9">
+               <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="search-container">
+                     <input type="text" class="search-bar" placeholder="Tìm kiếm laptop...">
+                  </div>
+                  <div class="sort-container">
+                     <label for="sort-select" class="me-2">Sắp xếp theo:</label>
+                     <select class="form-select form-select-sm" id="sort-select" style="width: auto;">
+                        <option value="featured">Nổi bật</option>
+                        <option value="price-low">Giá: Thấp đến cao</option>
+                        <option value="price-high">Giá: Cao đến thấp</option>
+                        <option value="name-asc">Tên: A đến Z</option>
+                        <option value="name-desc">Tên: Z đến A</option>
+                     </select>
+                  </div>
+               </div>
+               
+               <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                     <h1 class="laptop_taital">BỘ SƯU TẬP LAPTOP CAO CẤP</h1>
+                     <p class="text-muted">Hiển thị <strong id="product-count">0</strong> sản phẩm</p>
+                  </div>
+                  <div class="view-options">
+                     <button class="btn btn-sm btn-outline-secondary view-btn active" data-view="grid" title="Xem dạng lưới"><i class="fas fa-th"></i></button>
+                     <button class="btn btn-sm btn-outline-secondary view-btn" data-view="list" title="Xem dạng danh sách"><i class="fas fa-list"></i></button>
+                  </div>
+               </div>               
+               <!-- Thanh so sánh (ban đầu ẩn) -->
+               <div id="comparison-bar" class="card p-3 mb-3" style="display: none;">
+                  <div class="d-flex justify-content-between align-items-center">
+                     <h5 class="mb-0">So sánh sản phẩm (<span id="compare-count">0</span>)</h5>
+                     <div>
+                        <button id="compare-products" class="btn btn-primary btn-sm">So sánh</button>
+                        <button id="clear-comparison" class="btn btn-outline-secondary btn-sm">Xóa</button>
+                     </div>
+                  </div>
+                  <div id="comparison-items" class="d-flex mt-2 flex-wrap">
+                     <!-- Các mục so sánh sẽ được thêm vào đây -->
+                  </div>
+               </div>
+               
+               <div id="product-container" class="row">
+                  <!-- Sản phẩm sẽ được tải động từ API -->
+               </div>
+               
+               <!-- Phân trang -->
+               <div id="pagination-container" class="mt-4 mb-5">
+                  <!-- Phân trang sẽ được tạo động bởi JavaScript -->
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- kết thúc phần laptop -->
+      
+      <!-- Bao gồm chân trang -->
+      <div data-include="../includes/footer.html"></div>
+
+      <!-- Thư viện jQuery -->
+      <script src="../js/jquery.min.js"></script>
+      <!-- Gói Bootstrap với Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- JavaScript tùy chỉnh -->
+      <script src="../js/custom.js"></script>
+      
+      <!-- Script xử lý phân trang -->
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            // Cấu hình phân trang
+            let currentPage = 1;
+            const itemsPerPage = 12; // Số sản phẩm trên mỗi trang
+            let totalProducts = 0;
+            let filteredProducts = [];
+            
+            // Hàm tải danh sách sản phẩm và thiết lập phân trang
+            function loadProducts(products) {
+               filteredProducts = products; // Lưu sản phẩm (đã lọc nếu có) vào biến
+               totalProducts = products.length;
+               
+               // Cập nhật số lượng sản phẩm hiển thị
+               document.getElementById('product-count').textContent = totalProducts;
+               
+               // Hiển thị sản phẩm cho trang hiện tại
+               displayProductsForPage(currentPage);
+               
+               // Tạo nút phân trang
+               createPaginationButtons();
+            }
+            
+            // Hàm hiển thị sản phẩm cho trang cụ thể
+            function displayProductsForPage(page) {
+               const productContainer = document.getElementById('product-container');
+               productContainer.innerHTML = ''; // Xóa nội dung hiện tại
+               
+               // Tính toán chỉ số bắt đầu và kết thúc
+               const startIndex = (page - 1) * itemsPerPage;
+               const endIndex = Math.min(startIndex + itemsPerPage, totalProducts);
+               
+               // Hiển thị sản phẩm từ startIndex đến endIndex
+               for (let i = startIndex; i < endIndex; i++) {
+                  const product = filteredProducts[i];
+                  if (product) {
+                     // Lấy mã HTML hiển thị sản phẩm từ hàm tạo sản phẩm hiện có
+                     // (giả định rằng có một hàm createProductCard trong product-api.js)
+                     const productCard = createProductCard(product); 
+                     productContainer.appendChild(productCard);
+                  }
+               }
+            }
+            
+            // Hàm tạo nút phân trang
+            function createPaginationButtons() {
+               const paginationContainer = document.getElementById('pagination-container');
+               paginationContainer.innerHTML = '';
+               
+               // Tính tổng số trang
+               const totalPages = Math.ceil(totalProducts / itemsPerPage);
+               
+               // Ẩn phân trang nếu chỉ có một trang
+               if (totalPages <= 1) {
+                 paginationContainer.style.display = 'none';
+                 return;
+               } else {
+                 paginationContainer.style.display = 'flex';
+                 paginationContainer.classList.add('justify-content-center');
+               }
+               
+               // Tạo phân trang với giao diện Bootstrap
+               const paginationNav = document.createElement('nav');
+               paginationNav.setAttribute('aria-label', 'Điều hướng trang sản phẩm');
+               
+               const paginationUl = document.createElement('ul');
+               paginationUl.className = 'pagination';
+               paginationUl.id = 'product-pagination';
+               
+               // Nút "Trang trước"
+               const prevLi = document.createElement('li');
+               prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+               
+               const prevLink = document.createElement('a');
+               prevLink.className = 'page-link';
+               prevLink.href = '#product-container';
+               prevLink.setAttribute('aria-label', 'Trang trước');
+               prevLink.textContent = 'Trang trước';
+               prevLink.dataset.page = currentPage - 1;
+               
+               prevLi.appendChild(prevLink);
+               paginationUl.appendChild(prevLi);
+               
+               // Các nút số trang
+               const maxPagesToShow = 5;
+               let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+               let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+               
+               // Điều chỉnh lại nếu cần
+               if (endPage - startPage + 1 < maxPagesToShow) {
+                 startPage = Math.max(1, endPage - maxPagesToShow + 1);
+               }
+               
+               // Thêm nút trang đầu nếu cần
+               if (startPage > 1) {
+                 appendPageButton(paginationUl, 1);
+                 
+                 // Thêm dấu chấm lửng nếu cần
+                 if (startPage > 2) {
+                   appendEllipsis(paginationUl);
+                 }
+               }
+               
+               // Thêm các nút số trang
+               for (let i = startPage; i <= endPage; i++) {
+                 appendPageButton(paginationUl, i);
+               }
+               
+               // Thêm dấu chấm lửng và nút trang cuối nếu cần
+               if (endPage < totalPages) {
+                 // Thêm dấu chấm lửng nếu cần
+                 if (endPage < totalPages - 1) {
+                   appendEllipsis(paginationUl);
+                 }
+                 
+                 // Thêm nút trang cuối
+                 appendPageButton(paginationUl, totalPages);
+               }
+               
+               // Nút "Trang sau"
+               const nextLi = document.createElement('li');
+               nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+               
+               const nextLink = document.createElement('a');
+               nextLink.className = 'page-link';
+               nextLink.href = '#product-container';
+               nextLink.setAttribute('aria-label', 'Trang sau');
+               nextLink.textContent = 'Trang sau';
+               nextLink.dataset.page = currentPage + 1;
+               
+               nextLi.appendChild(nextLink);
+               paginationUl.appendChild(nextLi);
+               
+               paginationNav.appendChild(paginationUl);
+               paginationContainer.appendChild(paginationNav);
+               
+               // Thêm sự kiện cho tất cả các nút phân trang
+               addPaginationEventListeners();
+            }
+            
+            // Hàm tạo nút số trang
+            function appendPageButton(parent, pageNumber) {
+               const pageLi = document.createElement('li');
+               pageLi.className = `page-item ${pageNumber === currentPage ? 'active' : ''}`;
+               
+               const pageLink = document.createElement('a');
+               pageLink.className = 'page-link';
+               pageLink.href = '#product-container';
+               pageLink.textContent = pageNumber;
+               pageLink.dataset.page = pageNumber;
+               pageLink.setAttribute('aria-label', `Trang ${pageNumber}`);
+               
+               if (pageNumber === currentPage) {
+                 pageLink.setAttribute('aria-current', 'page');
+               }
+               
+               pageLi.appendChild(pageLink);
+               parent.appendChild(pageLi);
+            }
+            
+            // Hàm tạo nút điểm chấm lửng
+            function appendEllipsis(parent) {
+               const ellipsisLi = document.createElement('li');
+               ellipsisLi.className = 'page-item disabled';
+               
+               const ellipsisSpan = document.createElement('span');
+               ellipsisSpan.className = 'page-link';
+               ellipsisSpan.textContent = '...';
+               ellipsisSpan.setAttribute('aria-hidden', 'true');
+               
+               ellipsisLi.appendChild(ellipsisSpan);
+               parent.appendChild(ellipsisLi);
+            }
+            
+            // Thêm sự kiện cho các nút phân trang
+            function addPaginationEventListeners() {
+               document.querySelectorAll('#product-pagination .page-link:not(.disabled)').forEach(link => {
+                 link.addEventListener('click', function(e) {
+                   e.preventDefault();
+                   const pageNum = parseInt(this.dataset.page);
+                   if (!isNaN(pageNum) && pageNum !== currentPage && pageNum > 0) {
+                     changePage(pageNum);
+                   }
+                 });
+               });
+            }
+            
+            // Hàm thay đổi trang
+            function changePage(page) {
+               currentPage = page;
+               displayProductsForPage(currentPage);
+               createPaginationButtons();
+               
+               // Cuộn lên đầu danh sách sản phẩm để người dùng không bị mất vị trí
+               const productContainer = document.getElementById('product-container');
+               productContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Kết nối với sự kiện tải sản phẩm
+            // Giả định rằng có một sự kiện hoặc hàm gọi lại khi sản phẩm được tải
+            if (typeof window.onProductsLoaded !== 'function') {
+               window.onProductsLoaded = loadProducts;
+            } else {
+               const originalOnProductsLoaded = window.onProductsLoaded;
+               window.onProductsLoaded = function(products) {
+                  originalOnProductsLoaded(products);
+                  loadProducts(products);
+               };
+            }
+            
+            // Kết nối với sự kiện lọc sản phẩm
+            // Giả định rằng có một sự kiện hoặc hàm gọi lại khi sản phẩm được lọc
+            if (typeof window.onProductsFiltered !== 'function') {
+               window.onProductsFiltered = loadProducts;
+            } else {
+               const originalOnProductsFiltered = window.onProductsFiltered;
+               window.onProductsFiltered = function(products) {
+                  originalOnProductsFiltered(products);
+                  loadProducts(products);
+               };
+            }
+         });
+      </script>
+   </body>
+</html>

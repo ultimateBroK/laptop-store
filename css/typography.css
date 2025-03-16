@@ -1,0 +1,332 @@
+/**
+ * Typography.css
+ * Thiết lập phông chữ nhất quán cho trang web TechHub
+ */
+
+/* Thiết lập phông chữ cơ bản */
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Open Sans', 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tiêu đề */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Roboto', 'Open Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+h1, .h1 {
+    font-size: 2.5rem;
+}
+
+h2, .h2 {
+    font-size: 2rem;
+}
+
+h3, .h3 {
+    font-size: 1.75rem;
+}
+
+h4, .h4 {
+    font-size: 1.5rem;
+}
+
+h5, .h5 {
+    font-size: 1.25rem;
+}
+
+h6, .h6 {
+    font-size: 1rem;
+}
+
+/* Phông chữ đáp ứng */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+    
+    h1, .h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2, .h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 14px;
+    }
+    
+    h1, .h1 {
+        font-size: 2rem;
+    }
+    
+    h2, .h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Phần tử đặc biệt */
+.about_taital,
+.laptop_taital,
+.address_text {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.footer_text,
+.about_text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Điều chỉnh cho văn bản nút */
+.btn,
+button,
+.send_bt a,
+.readmore_btn a,
+.read_bt a {
+    font-family: 'Roboto', 'Open Sans', 'Segoe UI', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* Điều hướng */
+.nav-link {
+    font-family: 'Roboto', 'Open Sans', 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Đảm bảo làm mịn phông chữ ở mọi nơi */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Hỗ trợ tiếng Việt */
+html, body {
+    font-family: 'Open Sans', 'Roboto', 'Segoe UI', 'Arial', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* Cỡ chữ cho các khu vực cụ thể */
+.banner_taital {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.banner_text, 
+.looking_text, 
+.about_text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.tasty_text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.types_text {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.prep_text {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.about_taital_1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.chair_text {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Điều chỉnh cỡ chữ cho các thành phần giao diện người dùng */
+.navbar-brand {
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.placeholder-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.price-value, 
+.price-range span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-check-label {
+    font-size: 0.95rem;
+}
+
+.category-btn {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Cỡ chữ cho các thẻ và huy hiệu */
+.blog_tag, 
+.blog_date,
+.accessory_badge,
+.badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Cỡ chữ phân trang */
+#pagination-container a {
+    font-size: 0.95rem;
+}
+
+/* Cỡ chữ cho các thành phần sản phẩm */
+.product-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.product-original-price {
+    font-size: 1rem;
+    text-decoration: line-through;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Cỡ chữ cho thanh so sánh */
+#comparison-bar h5 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Cỡ chữ cho các phần tử vị trí */
+.location_text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.location_text i {
+    font-size: 1.1rem;
+}
+
+/* Cỡ chữ cho phần chân trang */
+.address_text {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.copyright_text {
+    font-size: 0.9rem;
+}
+
+/* Điều chỉnh đáp ứng cho các khu vực cụ thể */
+@media (max-width: 992px) {
+    .banner_taital {
+        font-size: 2.5rem;
+    }
+    
+    .about_taital,
+    .laptop_taital,
+    .address_text {
+        font-size: 1.8rem;
+    }
+    
+    .types_text {
+        font-size: 1.15rem;
+    }
+    
+    .chair_text {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner_taital {
+        font-size: 2rem;
+    }
+    
+    .tasty_text {
+        font-size: 1.3rem;
+    }
+    
+    .types_text {
+        font-size: 1.1rem;
+    }
+    
+    .address_text {
+        font-size: 1.6rem;
+    }
+    
+    .chair_text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner_taital {
+        font-size: 1.8rem;
+    }
+    
+    .banner_text {
+        font-size: 0.95rem;
+    }
+    
+    .about_taital,
+    .laptop_taital,
+    .address_text {
+        font-size: 1.5rem;
+    }
+    
+    .about_taital_1 {
+        font-size: 1.4rem;
+    }
+    
+    .types_text {
+        font-size: 1rem;
+    }
+    
+    .looking_text,
+    .about_text {
+        font-size: 0.95rem;
+    }
+    
+    .chair_text {
+        font-size: 1.2rem;
+    }
+}

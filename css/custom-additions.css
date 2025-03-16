@@ -1,0 +1,207 @@
+/* Custom placeholder styles for missing images */
+.placeholder-logo {
+    background: linear-gradient(135deg, #2962ff 0%, #0039cb 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+}
+
+.placeholder-laptop {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 250px;
+}
+
+.placeholder-laptop i {
+    font-size: 48px;
+    color: #2962ff;
+    margin-bottom: 10px;
+}
+
+.placeholder-laptop span {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+/* Fix layout issues */
+.laptop_img {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-bottom: 20px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure consistent spacing */
+.laptop_section {
+    padding: 60px 0;
+}
+
+.laptop_section_2 {
+    padding-top: 30px;
+}
+
+/* Fix carousel alignment */
+.carousel-inner .container-fluid {
+    padding: 0 15px;
+}
+
+/* Improve bulit icon appearance */
+.bulit_icon {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 30px;
+}
+
+.bulit_icon i {
+    font-size: 24px;
+    color: #2962ff;
+    background: #f8f9fa;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure responsive images */
+.blog_img img, .about_img, .client_img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve blog section layout */
+.blog_box {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.blog_box:hover {
+    transform: translateY(-5px);
+}
+
+/* Improve about section layout */
+.about_section_2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+.image_iman {
+    display: flex;
+    justify-content: center;
+}
+
+/* Improve footer layout */
+.footer_section {
+    padding: 60px 0 30px;
+}
+
+.footer_logo {
+    margin-bottom: 20px;
+}
+
+/* Additional styles for laptop cards */
+.spec-badge {
+    display: inline-block;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.price-tag {
+    display: inline-block;
+    background-color: #01c853;
+    color: white;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.stock-status {
+    font-size: 12px;
+    color: #01c853;
+    margin-left: 10px;
+}
+
+.stock-status.low {
+    color: #ff9800;
+}
+
+.stock-status.out {
+    color: #f44336;
+}
+
+/* Filter sidebar improvements */
+.filter-section {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.filter-section:last-child {
+    border-bottom: none;
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2962ff;
+    margin-bottom: 10px;
+}
+
+/* Rating stars */
+.rating {
+    color: #ffc107;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.rating .far {
+    color: #e0e0e0;
+}
+
+/* Comparison checkbox */
+.compare-check {
+    margin-top: 10px;
+}
+
+.compare-label {
+    font-size: 13px;
+    color: #555;
+    margin-left: 5px;
+}

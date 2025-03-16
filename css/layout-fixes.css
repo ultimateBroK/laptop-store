@@ -1,0 +1,620 @@
+/* Layout Fixes CSS - Addressing white space and overlapping elements */
+
+/* Fix white space above headers - root level fixes */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body > div[data-include] {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix white space above headers */
+.banner_section {
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+.laptop_section {
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+.about_section, .blog_section {
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+/* Fix header layout */
+.header_section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove extra DOCTYPE and HTML tags in includes */
+div[data-include] > html,
+div[data-include] > html > body {
+    display: contents;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix layout issues with overlapping elements */
+.laptop_section_2 {
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+/* Ensure proper spacing between carousel items */
+.carousel-item .row {
+    margin: 0 -15px;
+}
+
+/* Fix spacing in product cards */
+.product-card {
+    margin-bottom: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.product-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.product-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+    z-index: 1;
+}
+
+.product-img img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.05);
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #2962ff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.product-badge.sale {
+    background-color: #e53935;
+}
+
+.product-badge.new {
+    background-color: #43a047;
+}
+
+.product-badge.bestseller {
+    background-color: #ff9800;
+}
+
+.product-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fix spacing in laptop cards */
+.laptop_box {
+    margin-bottom: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Enhanced placeholder laptops */
+.placeholder-laptop {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.placeholder-laptop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.placeholder-laptop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #2962ff;
+}
+
+.placeholder-laptop.gaming::before {
+    background-color: #e53935;
+}
+
+.placeholder-laptop.business::before {
+    background-color: #43a047;
+}
+
+.placeholder-laptop.ultrabook::before {
+    background-color: #ff9800;
+}
+
+.placeholder-laptop.budget::before {
+    background-color: #9c27b0;
+}
+
+.placeholder-laptop i {
+    font-size: 36px;
+    color: #2962ff;
+    margin-bottom: 15px;
+}
+
+.placeholder-laptop span {
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+.placeholder-laptop .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #2962ff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.placeholder-laptop.gaming .badge {
+    background-color: #e53935;
+}
+
+.placeholder-laptop.business .badge {
+    background-color: #43a047;
+}
+
+.placeholder-laptop.ultrabook .badge {
+    background-color: #ff9800;
+}
+
+.placeholder-laptop.budget .badge {
+    background-color: #9c27b0;
+}
+
+.laptop_img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Laptop badges */
+.laptop_badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #2962ff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.laptop_badge_sale {
+    background-color: #e53935;
+}
+
+.laptop_badge_popular {
+    background-color: #43a047;
+}
+
+.laptop_badge_bestseller {
+    background-color: #ff9800;
+}
+
+/* About page styling */
+.image_iman {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.image_iman img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image_iman:hover img {
+    transform: scale(1.05);
+}
+
+.about_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+}
+
+.about_badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #2962ff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Accessories page styling */
+.image_2 {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image_2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image_2:hover img {
+    transform: scale(1.05);
+}
+
+.accessory_badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #2962ff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.accessory_badge.new {
+    background-color: #43a047;
+}
+
+.accessory_badge.sale {
+    background-color: #e53935;
+}
+
+.accessory_badge.bestseller {
+    background-color: #ff9800;
+}
+
+/* Blog styling enhancements */
+.blog_box {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.blog_box:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.blog_img {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.blog_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog_box:hover .blog_img img {
+    transform: scale(1.05);
+}
+
+.blog_tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #2962ff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.blog_tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.laptop_text {
+    padding: 10px 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fix container padding issues */
+.container-fluid {
+    padding: 0 15px;
+}
+
+/* Fix banner alignment */
+.banner_taital_main {
+    padding-top: 20px;
+}
+
+/* Ensure proper spacing between sections */
+.layout_padding {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Fix filter section spacing */
+.filter-section {
+    margin-bottom: 15px;
+}
+
+/* Fix pagination spacing */
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Fix footer spacing */
+.footer_section {
+    margin-top: 0;
+    padding-top: 40px;
+}
+
+/* Improve carousel controls */
+.carousel-control-prev, .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(41, 98, 255, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: rgba(41, 98, 255, 0.9);
+    opacity: 1;
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+.carousel-control-prev i, .carousel-control-next i {
+    color: white;
+    font-size: 16px;
+}
+
+/* Fix card heights in laptop section */
+#main_slider .col-lg-3 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+#main_slider .col-lg-3 > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.types_text {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.looking_text {
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+/* Fix banner content alignment */
+.banner_taital_main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+/* Fix section headings */
+.about_taital, .laptop_taital {
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.bulit_icon {
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Fix customer testimonials heading */
+.client_section .about_taital {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2962ff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.client_section .bulit_icon {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Fix spacing between sections */
+.laptop_section + .about_section,
+.about_section + .client_section,
+.client_section + .blog_section {
+    margin-top: 20px;
+    padding-top: 40px;
+}
+
+/* Fix client testimonials section */
+.client_section {
+    padding: 40px 0;
+    overflow: hidden;
+    clear: both;
+    position: relative;
+}
+
+.client_section_2 {
+    position: relative;
+    z-index: 1;
+}
+
+.client_taital_main {
+    display: flex;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.client_left {
+    flex: 0 0 120px;
+    margin-right: 20px;
+}
+
+.client_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 3px solid #2962ff;
+}
+
+.client_img img {
+    width: 100%;
+    height: auto;
+}
+
+.client_right {
+    flex: 1;
+}
+
+.moark_text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2962ff;
+    margin-bottom: 10px;
+}
+
+.client_text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+   <!-- cơ bản -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- thông tin trang -->
+   <title>TechHub - Cửa Hàng Laptop Cao Cấp</title>
+   <meta name="keywords" content="laptops, laptop gaming, laptop văn phòng, ultrabooks, laptop giá rẻ">
+   <meta name="description" content="TechHub - Điểm đến hàng đầu cho laptop chất lượng cao và phụ kiện công nghệ">
+   <meta name="author" content="TechHub">
+   <!-- bootstrap css (phiên bản 5.3.2) -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- css style -->
+   <link rel="stylesheet" type="text/css" href="../css/style.css">
+   <!-- css tech -->
+   <link rel="stylesheet" type="text/css" href="../css/tech.css">
+   <!-- typography css -->
+   <link rel="stylesheet" type="text/css" href="../css/typography.css">
+   <!-- bổ sung tùy chỉnh -->
+   <link rel="stylesheet" type="text/css" href="../css/custom-additions.css">
+   <!-- sửa lỗi bố cục -->
+   <link rel="stylesheet" type="text/css" href="../css/layout-fixes.css">
+   <!-- Tương thích đáp ứng -->
+   <link rel="stylesheet" href="../css/responsive.css">
+   <!-- biểu tượng trang web -->
+   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+   <!-- css phông chữ -->
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+   <!-- css tùy chỉnh cho thanh cuộn -->
+   <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+   <!-- Font Awesome 6 -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <!-- Script để nhúng HTML -->
+   <script src="../js/include-html.js"></script>
+   <style>
+      /* Kiểu cho card laptop dạng placeholder */
+      .placeholder-laptop {
+         background-color: #f0f0f0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         border-radius: 8px;
+         padding: 20px;
+         margin-bottom: 20px;
+         height: 200px;
+         width: 100%;
+         transition: transform 0.3s;
+      }
+      .placeholder-laptop:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      .placeholder-laptop i {
+         font-size: 32px;
+         color: #2962ff;
+         margin-bottom: 10px;
+      }
+      .placeholder-laptop span {
+         font-weight: 600;
+         color: #333;
+         text-align: center;
+      }
+
+      /* Kiểu cho laptop trong banner */
+      .laptop-banner-container {
+         position: relative;
+         height: 300px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         overflow: hidden;
+      }
+      .laptop-banner-container img {
+         max-width: 100%;
+         max-height: 280px;
+         object-fit: contain;
+      }
+      .laptop-banner-info {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         background-color: rgba(0,0,0,0.7);
+         color: white;
+         padding: 10px;
+         width: 100%;
+         text-align: center;
+      }
+      .laptop-banner-info strong {
+         display: block;
+         margin-bottom: 5px;
+         font-size: 16px;
+      }
+      .laptop-banner-info .price {
+         font-size: 14px;
+         color: #ffd700;
+      }
+      .laptop-loading {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 300px;
+      }
+
+      /* Sửa bố cục phần giới thiệu */
+      .about_section_2 {
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: space-between;
+         margin-top: 30px;
+      }
+      .image_iman {
+         flex: 0 0 40%;
+         display: flex;
+         justify-content: center;
+         padding: 15px;
+      }
+      .about_taital_box {
+         flex: 0 0 55%;
+         padding: 15px;
+      }
+
+      /* Sửa bố cục phần liên hệ */
+      .contact_section_2 {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 20px;
+         padding: 20px;
+      }
+      .contact_section_2 > * {
+         width: 100%;
+      }
+      .contact_section_2 > div {
+         display: flex;
+         flex-direction: column;
+      }
+      .mail_section_1 {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         margin-bottom: 20px;
+      }
+      .mail_section_1, .map-responsive {
+         flex: 1;
+      }
+      .map-responsive {
+         overflow: hidden;
+         padding-bottom: 56.25%; /* 16:9 aspect ratio */
+         position: relative;
+         height: 0;
+      }
+      .map-responsive iframe {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* Điều chỉnh nút điều khiển carousel trong banner */
+      .banner_section .carousel-control-prev,
+      .banner_section .carousel-control-next {
+         position: static;
+         top: auto;
+         transform: none;
+         margin: 0;
+      }
+
+      /* Điều chỉnh cho các thiết bị khác nhau */
+      @media (max-width: 992px) {
+         .about_section_2 {
+            flex-direction: column;
+         }
+         .image_iman, .about_taital_box {
+            flex: 0 0 100%;
+            text-align: center;
+         }
+         .laptop-banner-container {
+            height: 250px;
+         }
+      }
+      
+      @media (max-width: 768px) {
+         .contact_section_2 {
+            grid-template-columns: 1fr;
+         }
+         .laptop-banner-container {
+            height: 200px;
+         }
+         .placeholder-laptop {
+            height: 180px;
+         }
+      }
+      
+      @media (max-width: 576px) {
+         .laptop-banner-container {
+            height: 180px;
+         }
+         .laptop-banner-info {
+            font-size: 12px;
+            padding: 5px;
+         }
+      }
+   </style>
+</head>
+<body>
+   <!-- Bao gồm Header -->
+   <div data-include="../includes/header.html"></div>
+   <!-- phần banner bắt đầu --> 
+   <div class="banner_section layout_padding">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-auto">
+               <a class="carousel-control-prev" href="#banner_slider" role="button" data-bs-slide="prev">
+                  <i class="fas fa-arrow-left"></i>
+               </a>
+            </div>
+            <div class="col">
+               <div id="banner_slider" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                     <!-- First Slide -->
+                     <div class="carousel-item active">
+                        <div class="row align-items-center">
+                           <!-- Left Column: Laptop Image -->
+                           <div class="col-md-6 d-flex justify-content-center">
+                              <div class="banner_img">
+                                 <div class="laptop-banner-container" id="laptop-banner-1">
+                                    <div class="laptop-loading">
+                                       <i class="fas fa-spinner fa-spin fa-2x"></i>
+                                       <p>Đang tải...</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- Right Column: Text Content -->
+                           <div class="col-md-6">
+                              <div class="banner_taital_main">
+                                 <h1 class="banner_taital">Laptop Cao Cấp</h1>
+                                 <h5 class="tasty_text">Công Nghệ Tiên Tiến tại TechHub</h5>
+                                 <p class="banner_text">Khám phá bộ sưu tập laptop hiệu suất cao với ưu đãi độc quyền.</p>
+                                 <div class="btn_main">
+                                    <div class="about_bt"><a href="about.html">Cửa Hàng</a></div>
+                                    <div class="callnow_bt active"><a href="#">Mua Ngay</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Second Slide -->
+                     <div class="carousel-item">
+                        <div class="row align-items-center">
+                           <!-- Left Column: Laptop Image -->
+                           <div class="col-md-6 d-flex justify-content-center">
+                              <div class="banner_img">
+                                 <div class="laptop-banner-container" id="laptop-banner-2">
+                                    <div class="laptop-loading">
+                                       <i class="fas fa-spinner fa-spin fa-2x"></i>
+                                       <p>Đang tải...</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- Right Column: Text Content -->
+                           <div class="col-md-6">
+                              <div class="banner_taital_main">
+                                 <h1 class="banner_taital">Sản Phẩm Mới</h1>
+                                 <h5 class="tasty_text">Hiệu Năng Vượt Trội</h5>
+                                 <p class="banner_text">Trải nghiệm công nghệ mới nhất với các mẫu laptop đa dạng.</p>
+                                 <div class="btn_main">
+                                    <div class="about_bt"><a href="about.html">Cửa Hàng</a></div>
+                                    <div class="callnow_bt active"><a href="#">Mua Ngay</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Third Slide -->
+                     <div class="carousel-item">
+                        <div class="row align-items-center">
+                           <!-- Left Column: Laptop Image -->
+                           <div class="col-md-6 d-flex justify-content-center">
+                              <div class="banner_img">
+                                 <div class="laptop-banner-container" id="laptop-banner-3">
+                                    <div class="laptop-loading">
+                                       <i class="fas fa-spinner fa-spin fa-2x"></i>
+                                       <p>Đang tải...</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- Right Column: Text Content -->
+                           <div class="col-md-6">
+                              <div class="banner_taital_main">
+                                 <h1 class="banner_taital">Khuyến Mãi</h1>
+                                 <h5 class="tasty_text">Ưu Đãi Đặc Biệt</h5>
+                                 <p class="banner_text">Giá tốt nhất cho các sản phẩm công nghệ chất lượng cao.</p>
+                                 <div class="btn_main">
+                                    <div class="about_bt"><a href="about.html">Cửa Hàng</a></div>
+                                    <div class="callnow_bt active"><a href="#">Mua Ngay</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div><!-- carousel-inner -->
+               </div><!-- banner_slider -->
+            </div><!-- col -->
+            <div class="col-auto">
+               <a class="carousel-control-next" href="#banner_slider" role="button" data-bs-slide="next">
+                  <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+         </div><!-- row -->
+      </div><!-- container -->
+   </div>
+   <!-- phần banner kết thúc -->
+
+   <!-- phần laptop bắt đầu -->
+   <div class="laptop_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <h1 class="laptop_taital">LAPTOP NỔI BẬT</h1>
+         </div>
+      </div>
+      <div class="laptop_section_2">
+         <div class="container">
+            <div id="main_slider" class="carousel slide" data-bs-ride="carousel">
+               <div class="carousel-inner">
+                  <!-- First Slide -->
+                  <div class="carousel-item active">
+                     <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                           <div class="laptop_img">
+                              <div class="placeholder-laptop gaming">
+                                 <i class="fas fa-gamepad"></i>
+                                 <span>Laptop Gaming</span>
+                                 <div class="badge">Mới</div>
+                              </div>
+                           </div>
+                           <h3 class="types_text">LAPTOP GAMING</h3>
+                           <p class="looking_text">Laptop hiệu suất cao được thiết kế cho trải nghiệm chơi game sống động</p>
+                           <div class="read_bt"><a href="#">Xem Thêm</a></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                           <div class="laptop_img">
+                              <div class="placeholder-laptop business">
+                                 <i class="fas fa-briefcase"></i>
+                                 <span>Laptop Văn Phòng</span>
+                                 <div class="badge">Giảm Giá</div>
+                              </div>
+                           </div>
+                           <h3 class="types_text">LAPTOP VĂN PHÒNG</h3>
+                           <p class="looking_text">Laptop chuyên nghiệp với tính năng bảo mật và thời lượng pin dài</p>
+                           <div class="read_bt"><a href="#">Xem Thêm</a></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                           <div class="laptop_img">
+                              <div class="placeholder-laptop ultrabook">
+                                 <i class="fas fa-feather-alt"></i>
+                                 <span>Ultrabook</span>
+                                 <div class="badge">Phổ Biến</div>
+                              </div>
+                           </div>
+                           <h3 class="types_text">ULTRABOOKS</h3>
+                           <p class="looking_text">Laptop mỏng nhẹ với hiệu suất mạnh mẽ cho người dùng di chuyển</p>
+                           <div class="read_bt"><a href="#">Xem Thêm</a></div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Second Slide -->
+                  <div class="carousel-item">
+                     <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                           <div class="laptop_img">
+                              <div class="placeholder-laptop budget">
+                                 <i class="fas fa-piggy-bank"></i>
+                                 <span>Laptop Giá Rẻ</span>
+                                 <div class="badge">Bán Chạy</div>
+                              </div>
+                           </div>
+                           <h3 class="types_text">LAPTOP GIÁ RẺ</h3>
+                           <p class="looking_text">Laptop giá cả phải chăng mang lại hiệu suất đáng tin cậy</p>
+                           <div class="read_bt"><a href="#">Xem Thêm</a></div>
+                        </div>
+                        <!-- Có thể thêm các mục khác cho slide thứ 2 -->
+                     </div>
+                  </div>
+               </div><!-- carousel-inner -->
+            </div><!-- main_slider -->
+         </div><!-- container -->
+      </div><!-- laptop_section_2 -->
+   </div>
+   <!-- phần laptop kết thúc -->
+
+   <!-- phần liên hệ bắt đầu -->
+   <div class="contact_section layout_padding">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <h1 class="contact_taital">Liên Hệ Với Chúng Tôi</h1>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="contact_section_2">
+              <div>
+                  <div class="mail_section_1">
+                      <input type="text" class="mail_text" placeholder="Họ Tên" name="Họ Tên">
+                      <input type="text" class="mail_text" placeholder="Email" name="Email">
+                      <input type="text" class="mail_text" placeholder="Số Điện Thoại" name="Số Điện Thoại">
+                      <textarea class="massage-bt" placeholder="Tin Nhắn" rows="5" id="comment" name="Tin Nhắn"></textarea>
+                      <div class="send_bt"><a href="#">GỬI</a></div>
+                  </div>
+              </div>
+              <div>
+                  <div class="map-responsive">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1283.3245301906275!2d105.85053960496211!3d20.987947799203067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135adf6f9ebd513%3A0x84d227c44afb1fce!2sChung%20c%C6%B0%20momota!5e1!3m2!1svi!2s!4v1741924974575!5m2!1svi!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+              </div>
+          </div>
+      </div>
+   </div>
+   <!-- phần liên hệ kết thúc -->
+
+   <!-- Bao gồm Footer -->
+   <div data-include="../includes/footer.html"></div>
+
+   <!-- Bootstrap JavaScript Libraries -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+   <!-- Hợp nhất sự kiện DOMContentLoaded -->
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+         // Include HTML
+         includeHTML(function() {
+            console.log("Tất cả các thành phần HTML đã được include");
+         });
+         // Khởi tạo banner laptop
+         initLaptopBanners();
+      }, false);
+
+      // Bắt lỗi cho phần include
+      window.addEventListener('error', function(e) {
+         if (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK') {
+            console.error('Không thể tải thành phần:', e.target.src || e.target.href);
+            if ((e.target.src || e.target.href).includes('header')) {
+               const headerElement = document.querySelector('[data-include="../includes/header.html"]');
+               if (headerElement) {
+                  headerElement.innerHTML = `
+                     <header class="header_section">
+                        <div class="container">
+                           <nav class="navbar navbar-expand-lg custom_nav-container">
+                              <a class="navbar-brand" href="index.html"><span>TechHub</span></a>
+                              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                 <span class="navbar-toggler-icon"></span>
+                              </button>
+                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                 <ul class="navbar-nav mx-auto">
+                                    <li class="nav-item active">
+                                       <a class="nav-link" href="index.html">Trang Chủ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="about.html">Giới Thiệu</a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="products.html">Sản Phẩm</a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="contact.html">Liên Hệ</a>
+                                    </li>
+                                 </ul>
+                                 <div class="user_option">
+                                    <a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                    <a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                    <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                                       <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                                          <i class="fa fa-search" aria-hidden="true"></i>
+                                       </button>
+                                    </form>
+                                 </div>
+                              </div>
+                           </nav>
+                        </div>
+                     </header>`;
+               }
+            }
+         }
+      }, true);
+
+      // Thêm script để tải dữ liệu laptop từ API
+      let laptops = [];
+      const totalBanners = 3;
+      const apiUrl = 'https://main.vienthong3g.vn/VnetManager/api.jsp?chart=zipchat_hieu&node=Start&b&t&c&r&s&sc&g&min&max';
+      
+      // Hàm định dạng giá tiền
+      function formatPrice(price) {
+         return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+         }).format(price);
+      }
+
+      // Hàm lấy URL hình ảnh sản phẩm
+      function getProductImageUrl(product) {
+         if (!product) {
+            return "No product information available";
+         }
+         
+         // Ưu tiên hình ảnh do API cung cấp nếu chúng tồn tại
+         if (product.imageUrl && product.imageUrl.trim()) {
+            return product.imageUrl;
+         }
+         
+         // Kiểm tra các trường hình ảnh khác
+         if (product.image && product.image.trim()) {
+            return product.image;
+         }
+         
+         // Trả về đường dẫn hình ảnh mặc định nếu không có hình ảnh
+         return "../images/laptop-banner.png";
+      }
+
+      // Sửa hàm displayLaptop để sử dụng ảnh từ API
+      function displayLaptop(laptop, bannerId) {
+         const bannerElement = document.getElementById(bannerId);
+         if (!bannerElement) return;
+         // Lấy URL ảnh từ sản phẩm dựa trên logic trong product-api.js
+         const imageUrl = getProductImageUrl(laptop);
+         // Hiển thị ảnh với xử lý lỗi (fallback nếu ảnh không tải được)
+         bannerElement.innerHTML = `<img src="${imageUrl}" alt="${laptop.name}" onerror="this.onerror=null;this.src='fallback.jpg'">`;
+      }
+
+      // Sửa hàm fetchLaptops để xử lý lấy dữ liệu và ảnh từ API
+      async function fetchLaptops() {
+         const apiUrl = "https://main.vienthong3g.vn/VnetManager/api.jsp?chart=zipchat_hieu&node=Start&b&t&c&r&s&sc&g&min&max";
+         try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 giây timeout
+            const response = await fetch(apiUrl, { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (!response.ok) {
+               console.error("API error:", response.status);
+               window.laptops = [];
+               return;
+            }
+            const data = await response.json();
+            if (Array.isArray(data)) {
+               window.laptops = data.map(laptop => {
+                  // Sử dụng hàm getProductImageUrl để trích xuất URL ảnh
+                  laptop.imageUrl = getProductImageUrl(laptop);
+                  return laptop;
+               });
+            } else {
+               console.error("Invalid API response:", data);
+               window.laptops = [];
+            }
+         } catch (error) {
+            console.error("Error fetching laptops:", error);
+            window.laptops = [];
+         }
+      }
+
+      function getMockLaptops() {
+         return [
+            {
+               id: 1,
+               name: "MacBook Pro 16",
+               image: "../images/laptop-banner.png",
+               price: "35.990.000đ",
+               specs: "Intel Core i7, 16GB RAM, 512GB SSD"
+            },
+            {
+               id: 2,
+               name: "Dell XPS 15",
+               image: "../images/laptop-banner.png",
+               price: "32.490.000đ",
+               specs: "Intel Core i9, 32GB RAM, 1TB SSD"
+            },
+            {
+               id: 3,
+               name: "Asus ROG Zephyrus",
+               image: "../images/laptop-banner.png",
+               price: "29.990.000đ",
+               specs: "AMD Ryzen 9, 16GB RAM, 1TB SSD, RTX 3070"
+            },
+            {
+               id: 4,
+               name: "Lenovo ThinkPad X1",
+               image: "../images/laptop-banner.png",
+               price: "28.490.000đ",
+               specs: "Intel Core i7, 16GB RAM, 512GB SSD"
+            },
+            {
+               id: 5,
+               name: "HP Spectre x360",
+               image: "../images/laptop-banner.png",
+               price: "27.990.000đ",
+               specs: "Intel Core i7, 16GB RAM, 1TB SSD"
+            }
+         ];
+      }
+
+      function getRandomLaptop(excludeIds = []) {
+         const available = laptops.filter(l => !excludeIds.includes(l.id));
+         return available.length
+            ? available[Math.floor(Math.random() * available.length)]
+            : laptops[0];
+      }
+
+      async function initLaptopBanners() {
+         try {
+            await fetchLaptops();
+            const usedIds = [];
+            for (let i = 1; i <= totalBanners; i++) {
+               const laptop = getRandomLaptop(usedIds);
+               usedIds.push(laptop.id);
+               displayLaptop(laptop, `laptop-banner-${i}`);
+            }
+         } catch (error) {
+            console.error('Error initializing laptop banners:', error);
+         }
+      }
+   </script>
+</body>
+</html>

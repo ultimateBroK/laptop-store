@@ -1,0 +1,99 @@
+/* Homepage specific styles */
+
+/* Product Badge Styles */
+.product-badge-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.product-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.product-badge.premium {
+    background-color: #9c27b0;
+}
+
+.product-badge.gaming {
+    background-color: #f44336;
+}
+
+.product-badge.convertible {
+    background-color: #2196f3;
+}
+
+/* Product Specs Styles */
+.product-specs {
+    margin: 10px 0;
+}
+
+.product-specs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-specs li {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.product-specs i {
+    margin-right: 5px;
+    color: #0d6efd;
+}
+
+/* Box Main Styles Enhancement */
+.box_main {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box_main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.laptop_img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.laptop_img img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.btn_main {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .laptop_img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .laptop_img {
+        height: 150px;
+    }
+}
