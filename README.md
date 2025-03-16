@@ -3,7 +3,6 @@
 > Discover your perfect laptop in our cutting-edge digital storefront. Where innovation meets simplicity!
 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-purple)
-![Tech](https://img.shields.io-badge/Tech-Modern-blue)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
 ## ✨ What Makes Us Special
