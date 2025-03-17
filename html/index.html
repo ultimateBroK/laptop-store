@@ -432,6 +432,7 @@
    <!-- Bootstrap JavaScript Libraries -->
    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="../js/product-api.js"></script>
 
    <!-- Hợp nhất sự kiện DOMContentLoaded -->
    <script>
@@ -440,6 +441,7 @@
          includeHTML(function() {
             console.log("Tất cả các thành phần HTML đã được include");
          });
+
          // Khởi tạo banner laptop
          initLaptopBanners();
       }, false);
@@ -529,14 +531,24 @@
          return "../images/laptop-banner.png";
       }
 
-      // Sửa hàm displayLaptop để sử dụng ảnh từ API
+      // Sử dụng hàm getProductImageUrl từ product-api.js
       function displayLaptop(laptop, bannerId) {
          const bannerElement = document.getElementById(bannerId);
          if (!bannerElement) return;
-         // Lấy URL ảnh từ sản phẩm dựa trên logic trong product-api.js
+         
+         // Sử dụng hàm getProductImageUrl từ product-api.js
          const imageUrl = getProductImageUrl(laptop);
-         // Hiển thị ảnh với xử lý lỗi (fallback nếu ảnh không tải được)
-         bannerElement.innerHTML = `<img src="${imageUrl}" alt="${laptop.name}" onerror="this.onerror=null;this.src='fallback.jpg'">`;
+         
+         // Tạo cấu trúc HTML cho banner
+         const bannerHTML = `
+            <img src="${imageUrl}" alt="${laptop.name}" onerror="this.onerror=null;this.src='../images/laptop-banner.png'">
+            <div class="laptop-banner-info">
+               <strong>${laptop.name}</strong>
+               <div class="price">${formatPrice(laptop.price)}</div>
+            </div>
+         `;
+         
+         bannerElement.innerHTML = bannerHTML;
       }
 
       // Sửa hàm fetchLaptops để xử lý lấy dữ liệu và ảnh từ API
@@ -630,5 +642,101 @@
          }
       }
    </script>
+   <script>
+      async function fetchLaptopData() {
+         try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000); // Hết hạn sau 10 giây
+            const response = await fetch("https://main.vienthong3g.vn/VnetManager/api.jsp?chart=zipchat_hieu&node=Start&b&t&c&r&s&sc&g&imageUrl&min&max", { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (!response.ok) {
+               console.error("API error:", response.status);
+               return [];
+            }
+            const data = await response.json();
+            return Array.isArray(data) ? data : [];
+         } catch (error) {
+            console.error("Error fetching laptops:", error);
+            return [];
+         }
+      }
+
+      function getImageUrl(laptop) {
+         if (!laptop) return "../images/laptop-banner.png";
+         if (laptop.imageUrl) return laptop.imageUrl;
+         if (laptop.image) return laptop.image;
+         return "../images/laptop-banner.png";
+      }
+
+      function displayLaptopBanner(bannerId, laptop) {
+         const bannerEl = document.getElementById(bannerId);
+         if (!bannerEl || !laptop) return;
+         bannerEl.innerHTML = `
+            <img src="${getImageUrl(laptop)}" alt="${laptop.name || 'Laptop'}" onerror="this.onerror=null;this.src='../images/laptop-banner.png'">
+            <div class="laptop-banner-info">
+               <strong>${laptop.name || 'Laptop'}</strong>
+               <div class="price">${laptop.price || ''}</div>
+            </div>
+         `;
+      }
+
+      async function initLaptopBanners() {
+         const laptops = await fetchLaptopData();
+         for (let i = 1; i <= 3; i++) {
+            if (laptops[i - 1]) {
+               displayLaptopBanner(`laptop-banner-${i}`, laptops[i - 1]);
+            }
+         }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+         includeHTML(() => {
+            console.log("Tất cả các thành phần HTML đã được include");
+         });
+         initLaptopBanners();
+      });
+   </script>
+   <script>
+async function fetchLaptopData() {
+   try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+      const response = await fetch("https://main.vienthong3g.vn/VnetManager/api.jsp?chart=zipchat_hieu&node=Start&b&t&c&r&s&sc&g&min&max", { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!response.ok) {
+         console.error("API error:", response.status);
+         return [];
+      }
+      const data = await response.json();
+      return Array.isArray(data) ? data.map(laptop => {
+         laptop.imageUrl = getProductImageUrl(laptop); // Use the getProductImageUrl function
+         return laptop;
+      }) : [];
+   } catch (error) {
+      console.error("Error fetching laptops:", error);
+      return [];
+   }
+}
+
+function displayLaptopBanner(bannerId, laptop) {
+   const bannerEl = document.getElementById(bannerId);
+   if (!bannerEl || !laptop) return;
+
+   // Use getProductImage function from product-api.js
+   const image = getProductImage(laptop);
+   bannerEl.innerHTML = `
+      ${image}
+      <div class="laptop-banner-info">
+         <strong>${laptop.name || 'Laptop'}</strong>
+         <div class="price">${laptop.price ? new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+         }).format(laptop.price) : ''}</div>
+      </div>
+   `;
+}
+
+// ...existing code...
+</script>
 </body>
 </html>

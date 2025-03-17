@@ -52,6 +52,48 @@ Want to customize? It's super easy:
 - 🎨 Tweak the colors in CSS
 - ✏️ Update product details in HTML
 
+## 🏗️ Technical Architecture
+
+### 🎨 Frontend Stack
+- **Core Technologies**:
+  - HTML5 semantic markup for structure
+  - CSS3 with modern flexbox/grid layouts
+  - Bootstrap 5.3.2 components & utilities
+  - Responsive images with lazy loading
+  - Client-side filtering using JavaScript
+
+- **UI Components**:
+  - Product cards with hover effects
+  - Filterable product grid
+  - Responsive navigation menu
+  - Contact forms with validation
+  - Image galleries with lightbox
+
+### ⚙️ Backend Architecture
+- **Server Setup**:
+  - Python simple HTTP server for development
+  - Static file serving capability
+  - Directory-based routing
+
+- **Future Implementation Plans**:
+  - RESTful API endpoints for product management
+  - Database integration (planned: MongoDB)
+  - User authentication system
+  - Shopping cart functionality
+  - Order processing system
+
+### 🔄 Data Flow
+- Product data stored in JSON format
+- Client-side filtering and sorting
+- Form submissions handled via API endpoints
+- Image assets served from CDN (planned)
+
+### 🔐 Security Considerations
+- Input validation on forms
+- XSS protection measures
+- CSRF token implementation (planned)
+- Secure payment gateway integration (planned)
+
 ## 📞 Need Help?
 
 Hit us up through our sleek contact form or raise an issue here!

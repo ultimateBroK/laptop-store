@@ -1,0 +1,9 @@
+/* ...existing code... */
+
+.fas, .fa {
+    /* Ensure both fas and fa classes are styled consistently */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* ...existing code... */
